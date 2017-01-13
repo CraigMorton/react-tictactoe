@@ -2,7 +2,7 @@ import React from 'react'
 import Board from '../components/Board.jsx'
 import {isGameFinished} from '../functions/gameLogic.js'
 
-class TickTackToeContainer extends React.Component{
+class TickTacToeContainer extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
@@ -85,4 +85,4 @@ class TickTackToeContainer extends React.Component{
 
 }
 
-export default TickTackToeContainer
+export default TickTacToeContainer

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TickTackToeContainer from './containers/TickTackToeContainer.jsx'
+import TickTacToeContainer from './containers/TickTacToeContainer.jsx'
 
 window.onload = function () {
   ReactDOM.render(
