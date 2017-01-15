@@ -1,5 +1,6 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
+import GameInfo from '../components/GameInfo.jsx'
 import {isGridComplete} from '../functions/gameLogic.js'
 
 class TicTacToeContainer extends React.Component{
@@ -78,6 +79,9 @@ class TicTacToeContainer extends React.Component{
         <Board
         grid={this.state.grid}
         handleCellClick={this.handleCellClick}
+        />
+        <GameInfo
+        player={this.state.player}
         />
       </div>
     )
