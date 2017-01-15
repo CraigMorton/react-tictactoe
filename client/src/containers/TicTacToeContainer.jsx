@@ -45,7 +45,7 @@ class TicTacToeContainer extends React.Component{
           claimed: false
         }
       ],
-      player: 'x'
+      isPlayerXTurn: true
     }
     this.handleCellClick = this.handleCellClick.bind(this)
   }
@@ -54,22 +54,18 @@ class TicTacToeContainer extends React.Component{
     const index = event.target.value
     const newGrid = this.state.grid.slice()
     newGrid[index] = {
-      symbol: this.state.player,
+      symbol: this.currentPlayerSymbol(),
       claimed: true
-    }
-
-    let newPlayer = ''
-    if (this.state.player === 'x'){
-      newPlayer = 'o'
-    }
-    if (this.state.player === 'o'){
-      newPlayer = 'x'
     }
 
     this.setState({
       grid: newGrid,
-      player: newPlayer
+      isPlayerXTurn: !this.state.isPlayerXTurn
     })
+  }
+
+  currentPlayerSymbol () {
+    return this.state.isPlayerXTurn ? 'X' : 'O'
   }
 
   render() {
@@ -81,7 +77,7 @@ class TicTacToeContainer extends React.Component{
         handleCellClick={this.handleCellClick}
         />
         <GameInfo
-        player={this.state.player}
+        player={this.currentPlayerSymbol()}
         />
       </div>
     )
