@@ -3,7 +3,7 @@ import Cell from './Cell.jsx'
 
 const Board = (props) => {
   return (
-    <div>
+    <div className='board'>
       {props.grid.map((cell, index) => {
           return <Cell
           key={index}

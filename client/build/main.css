@@ -2,56 +2,38 @@ body{
   font-family: Verdana;
 }
 
-.counter-box, .comment-box{
-  border: 2px solid mediumaquamarine;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px auto;
-  width: 400px;
-  font-size: 20px;
-  text-align: center;
+.board {
+  max-width: 360px;
+  min-width: 360px;
+  max-height: 360px;
+  min-height: 360px;
 }
 
-button{
+.cell {
   padding: 10px;
-  width: 150px;
-  border-radius: 10px;
-  font-size: 20px;
+  width: 120px;
+  height: 120px;
+  font-size: 5em;
+  background-color: wheat;
+  border: 3px solid black;
+}
+
+.cell:hover{
+  border: 3px solid mediumaquamarine;
+}
+
+.cell-claimed {
+  background-color: mediumaquamarine;
+}
+
+.cell-claimed:hover {
+  border: 3px solid black;
+}
+
+.cell-winner{
   background-color: tomato;
 }
 
-button:hover{
-  background-color: mediumaquamarine;
-}
-
-.comment{
-  border-bottom: 1px solid mediumaquamarine;
-  padding: 10px;
-}
-
-.comment-form{
-  margin: 0 auto;
-  width: 70%;
-}
-
-.comment-form input{
-  display: block;
-  margin: 20px 0;
-  padding: 10px;
-  width: 100%;
-}
-
-.comment-form input[type=submit]{
-  width: 100%;
-  padding: 10px;
-  margin 20px auto;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  background-color: mediumaquamarine;
-  border-radius: 5px;
-}
-
-.countries-box{
-  
+.cell-winner:hover{
+  border: 3px solid black;
 }
