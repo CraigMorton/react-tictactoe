@@ -5,8 +5,6 @@ const Board = (props) => {
   return (
     <div>
       {props.grid.map((cell, index) => {
-          console.log(cell)
-
           return <Cell
           key={index}
           symbol={cell.symbol}
