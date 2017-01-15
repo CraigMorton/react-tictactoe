@@ -7,8 +7,8 @@ const Board = (props) => {
       {props.grid.map((cell, index) => {
           return <Cell
           key={index}
-          symbol={cell.symbol}
-          claimed={cell.claimed}
+          symbol={cell}
+          claimed={cell !== '-'}
           index={index}
           handleClick={props.handleCellClick}
           />

@@ -7,44 +7,7 @@ class TicTacToeContainer extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      grid: [
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        },
-        {
-          symbol: '-',
-          claimed: false
-        }
-      ],
+      grid: ['-', '-', '-', '-', '-', '-', '-', '-', '-'],
       isPlayerXTurn: true
     }
   }
@@ -52,10 +15,7 @@ class TicTacToeContainer extends React.Component{
   handleCellClick = (event) => {
     const index = event.target.value
     const newGrid = this.state.grid.slice()
-    newGrid[index] = {
-      symbol: this.currentPlayerSymbol(),
-      claimed: true
-    }
+    newGrid[index] = this.currentPlayerSymbol()
 
     this.setState({
       grid: newGrid,
