@@ -1,6 +1,6 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
-import {isGameFinished} from '../functions/gameLogic.js'
+import {isGridComplete} from '../functions/gameLogic.js'
 
 class TickTacToeContainer extends React.Component{
   constructor(props) {
@@ -72,7 +72,7 @@ class TickTacToeContainer extends React.Component{
   }
 
   render() {
-    isGameFinished(this.state.grid)
+    // isGridComplete(this.state.grid)
     return (
       <div>
         <Board
