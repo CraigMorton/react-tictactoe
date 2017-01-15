@@ -35,8 +35,8 @@ describe('isGridComplete', () => {
     assert.equal(isGridComplete(grid), true)
   })
 
-  it('should return false when input is empty array', () => {
-    assert.equal(isGridComplete([]), false)
+  it('should return true when input is empty array', () => {
+    assert.equal(isGridComplete([]), true)
   })
 
 })
