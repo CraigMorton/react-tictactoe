@@ -4,7 +4,7 @@ import TickTacToeContainer from './containers/TickTacToeContainer.jsx'
 
 window.onload = function () {
   ReactDOM.render(
-    <TickTackToeContainer />,
+    <TickTacToeContainer />,
     document.getElementById('app')
   )
 }
