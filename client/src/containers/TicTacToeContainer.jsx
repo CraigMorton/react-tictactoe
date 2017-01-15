@@ -14,13 +14,11 @@ class TicTacToeContainer extends React.Component{
 
   handleCellClick = (event) => {
     const index = event.target.value
-    const newGrid = this.state.grid.slice()
-    newGrid[index] = this.currentPlayerSymbol()
+    const grid = this.state.grid.slice()
+    grid[index] = this.currentPlayerSymbol()
+    const isPlayerXTurn = !this.state.isPlayerXTurn
 
-    this.setState({
-      grid: newGrid,
-      isPlayerXTurn: !this.state.isPlayerXTurn
-    })
+    this.setState({grid, isPlayerXTurn})
   }
 
   currentPlayerSymbol = () => this.state.isPlayerXTurn ? 'X' : 'O'
