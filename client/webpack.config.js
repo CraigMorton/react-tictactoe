@@ -1,8 +1,8 @@
 config = {
-  entry: "./src/app.js",
+  entry: './src/app.js',
   output: {
-    filename: "bundle.js",
-    path: "./build"
+    filename: 'bundle.js',
+    path: './build'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -14,7 +14,8 @@ config = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel', // 'babel-loader' is also a legal name to reference
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015'],
+          plugins: ['transform-class-properties']
         }
       }
     ]

@@ -47,10 +47,9 @@ class TicTacToeContainer extends React.Component{
       ],
       isPlayerXTurn: true
     }
-    this.handleCellClick = this.handleCellClick.bind(this)
   }
 
-  handleCellClick (event) {
+  handleCellClick = (event) => {
     const index = event.target.value
     const newGrid = this.state.grid.slice()
     newGrid[index] = {
@@ -64,9 +63,7 @@ class TicTacToeContainer extends React.Component{
     })
   }
 
-  currentPlayerSymbol () {
-    return this.state.isPlayerXTurn ? 'X' : 'O'
-  }
+  currentPlayerSymbol = () => this.state.isPlayerXTurn ? 'X' : 'O'
 
   render() {
     // isGridComplete(this.state.grid)
