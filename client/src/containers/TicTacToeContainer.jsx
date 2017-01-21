@@ -7,7 +7,7 @@ class TicTacToeContainer extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      grid: ['-', '-', '-', '-', '-', '-', '-', '-', '-'],
+      grid: ['', '', '', '', '', '', '', '', ''],
       isPlayerXTurn: true
     }
   }
