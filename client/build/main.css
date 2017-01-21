@@ -16,9 +16,13 @@ body{
   font-size: 5em;
   background-color: wheat;
   border: 3px solid black;
+  /*display: inline-block;*/
+  box-sizing: border-box;
+  text-align: center;
+  float: left;
 }
 
-.cell:hover{
+.cell:hover {
   border: 3px solid mediumaquamarine;
 }
 
@@ -30,10 +34,10 @@ body{
   border: 3px solid black;
 }
 
-.cell-winner{
+.cell-winner {
   background-color: tomato;
 }
 
-.cell-winner:hover{
+.cell-winner:hover {
   border: 3px solid black;
 }
