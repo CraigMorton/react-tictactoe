@@ -22,19 +22,17 @@ class TicTacToeContainer extends React.Component{
 
   currentPlayerSymbol = () => this.state.isPlayerXTurn ? 'X' : 'O'
 
-  render() {
-    return (
-      <div>
-        <Board
-        grid={this.state.grid}
-        handleCellClick={this.handleCellClick}
-        />
-        <GameInfo
-        player={this.currentPlayerSymbol()}
-        />
-      </div>
-    )
-  }
+  render = () => (
+    <div>
+      <Board
+      grid={this.state.grid}
+      handleCellClick={this.handleCellClick}
+      />
+      <GameInfo
+      player={this.currentPlayerSymbol()}
+      />
+    </div>
+  )
 
 }
 
