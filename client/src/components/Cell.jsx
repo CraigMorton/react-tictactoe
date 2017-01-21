@@ -8,11 +8,12 @@ const Cell = function (props) {
     htmlClasses += ' cell-claimed'
   }
   return (
-    <button
+    <div
     className={htmlClasses}
-    value={props.index}
+    data-index={props.index}
     onClick={onClick}
-    >{props.symbol}</button>)
+    >{props.symbol}</div>
+    )
 }
 
 export default Cell
