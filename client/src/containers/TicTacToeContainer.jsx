@@ -1,6 +1,7 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
 import GameInfo from '../components/GameInfo.jsx'
+import SimpleButton from '../components/SimpleButton.jsx'
 import {
   isGameOver,
   winningSection,
@@ -25,6 +26,13 @@ class TicTacToeContainer extends React.Component{
     this.setState({grid, isPlayerXTurn})
   }
 
+  restartGame = (event) => {
+    this.setState({
+      grid: ['', '', '', '', '', '', '', '', ''],
+      isPlayerXTurn: true
+    })
+  }
+
   currentPlayerSymbol = () => this.state.isPlayerXTurn ? 'X' : 'O'
   otherPlayerSymbol = () => !this.state.isPlayerXTurn ? 'X' : 'O'
 
@@ -41,6 +49,10 @@ class TicTacToeContainer extends React.Component{
       opponent={this.otherPlayerSymbol()}
       gameOver={isGameOver(this.state.grid)}
       catsGame={isCatsGame(this.state.grid)}
+      />
+      <SimpleButton
+      onClick={this.restartGame}
+      text='Restart Game'
       />
     </div>
   )
