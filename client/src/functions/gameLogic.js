@@ -21,7 +21,7 @@ const winningSection = function (grid) {
     .reduce((acc, cell) => cell !== '' && cell === section[0] && acc, true))
   const winningSectionIndex = sectionWinStatus.indexOf(true)
 
-  if (winningSectionIndex === -1) return false
+  if (winningSectionIndex === -1) return null
   const winningSection = sections[winningSectionIndex]
   return winningSection
 }
@@ -33,7 +33,7 @@ const isCatsGame = (grid) => isGridComplete(grid) && !winningSection(grid)
 export {isCatsGame}
 
 const isGameOver = (grid) => (
-  isGridComplete(grid) || winningSection(grid).length != null
+  isGridComplete(grid) || winningSection(grid) != null
 )
 
 export {isGameOver}

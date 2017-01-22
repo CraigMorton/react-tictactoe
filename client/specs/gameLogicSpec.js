@@ -38,7 +38,7 @@ describe('winningSection function', () => {
       'O', 'X', 'X',
       'X', 'X', 'O',
     ]
-    assert.equal(winningSection(grid), false)
+    assert.equal(winningSection(grid), null)
   })
 
   it('should return first winning sections when multiple wins on board -- should not be possible during normal gameplay', () => {
