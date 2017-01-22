@@ -1,12 +1,12 @@
 import React from 'react'
 import Cell from './Cell.jsx'
 
-const Board = ({
+const Board = function ({
   grid,
   handleCellClick,
   winningCells,
   gameOver,
-}) => {
+}) {
   let cellOnClick = handleCellClick
   if (gameOver) cellOnClick = null
   let winningCellIndices = winningCells

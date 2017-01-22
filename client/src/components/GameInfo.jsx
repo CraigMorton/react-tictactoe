@@ -1,11 +1,11 @@
 import React from 'react'
 
-const GameInfo = ({
+const GameInfo = function ({
   player,
   gameOver,
   opponent,
   catsGame,
-}) => {
+}) {
   let gameInfoContent
   if (gameOver) {
     if (catsGame) {
