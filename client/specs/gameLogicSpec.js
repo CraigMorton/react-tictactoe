@@ -51,34 +51,50 @@ describe('winningSection function', () => {
 
   })
 
-// })
+})
 
-// import {isGameWon} from '../src/functions/gameLogic.js'
+import {isCatsGame} from '../src/functions/gameLogic.js'
 
-// describe('isGameWon function', () => {
+describe('isCatsGame function', () => {
   
-//   it('should return false when grid is empty array', () => {
-//     assert.equal(isGameWon([]), false)
-//   })
+  it('should return false when grid is empty array', () => {
+    assert.equal(isCatsGame([]), false)
+  })
 
-//   it('should return true when first row is same symbol', () => {
-//     const input = ['x', 'x', 'x', '-', '-', '-', '-', '-', '-']
-//     assert.equal(isGameWon(input), true)
-//   })
+  it('should return true no winning plays in complete grid', () => {
+    const grid = [
+      'X', 'O', 'O',
+      'O', 'X', 'X',
+      'X', 'X', 'O',
+    ]
+    assert.equal(isCatsGame(grid), true)
+  })
 
-// })
+  it('should return false when grid incomplete', () => {
+    const grid = [
+      'X', 'O', 'X',
+      'O', 'X', 'O',
+      'O', 'X', '',
+    ]
+    assert.equal(isCatsGame(grid), false)
+  })
 
-// import {isSectionWinner} from '../src/functions/gameLogic.js'
+  it('should return false when winning play found in grid', () => {
+    const grid = [
+      'X', 'X', 'X',
+      'X', 'O', 'O',
+      'O', 'X', 'O',
+    ]
+    assert.equal(isCatsGame(grid), false)
+  })
 
-// describe('isSectionWinner function', () => {
-  
-//   it('should return true when input is empty array', () => {
-//     assert.equal(isSectionWinner([]), true)
-//   })
-
-//   it('should return true when input cells are all the same', () => {
-//     const input = ['x', 'x', 'x']
-//     assert.equal(isSectionWinner(input), true)
-//   })
+  it('should return false when winning play found in incomplete grid', () => {
+    const grid = [
+      'X', 'X', 'X',
+      'X', 'O', 'O',
+      'O', 'X', '',
+    ]
+    assert.equal(isCatsGame(grid), false)
+  })
 
 })
