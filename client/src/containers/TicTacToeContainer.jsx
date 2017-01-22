@@ -1,7 +1,7 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
 import GameInfo from '../components/GameInfo.jsx'
-import SimpleButton from '../components/SimpleButton.jsx'
+import SimpleButton from '../components/generic/SimpleButton.jsx'
 import {
   isGameOver,
   winningSection,
