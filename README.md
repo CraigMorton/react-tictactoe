@@ -1,10 +1,5 @@
-# [WIP] react-ticktacktoe
-Friday afternoon React recap session. (Cohort 7)
+# react-tictactoe
 
-I'm continuing working on this on master. For the code as it was from friday in class [check out this branch](https://github.com/CraigMorton/react-tictactoe/tree/from-friday)
+I began this wee app as a React recap session for CodeClan Edinburgh Cohort 7
 
-Started making TicTacToe in React on the board on Friday afternoon. To give Cohort 7 a bit of a React recap Q&A.
-
-During the afterrnoon I completed most of the bare-bones of the React-y stuff. And only just got started on the game logic, with the first function.
-
-The code style and how I structure the app may not be consistent with what we covered during lessons, as this was not pre-planned and I wrote it off the top of my head.
+I've done more work on it on master. If you're in Cohort 7 and looking for the code as it was from that friday session [check out this branch](https://github.com/CraigMorton/react-tictactoe/tree/from-friday)
