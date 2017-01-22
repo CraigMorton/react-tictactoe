@@ -10,7 +10,7 @@ const Cell = function (props) {
       htmlClasses += ' cell-winner'
     }
   }
-
+  if (props.gameOver) htmlClasses += ' cell-game-over'
   return (
     <div
     className={htmlClasses}

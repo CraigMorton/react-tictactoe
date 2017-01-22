@@ -41,3 +41,7 @@ body{
 .cell-winner:hover {
   border: 3px solid black;
 }
+
+.cell-game-over:hover {
+  border: 3px solid black;
+}

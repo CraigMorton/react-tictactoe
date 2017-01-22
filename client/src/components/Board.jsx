@@ -16,6 +16,7 @@ const Board = (props) => {
         symbol={cell}
         claimed={cell !== ''}
         winner={winningCells.includes(index)}
+        gameOver={props.gameOver}
         index={index}
         handleClick={handleCellClick}
         />)
