@@ -25,10 +25,32 @@ class TicTacToeContainer extends React.Component{
   handleCellClick = (event) => {
     const index = event.target.dataset.index
     const grid = this.state.grid.slice()
-    grid[index] = this.currentPlayerSymbol()
-    const isPlayerXTurn = !this.state.isPlayerXTurn
+    grid[index] = this.state.player
+    const player = getOtherPlayer(this.state.player)
+    const opponent = getOtherPlayer(this.state.opponent)
+    this.setState({
+      grid,
+      player,
+      opponent,
+    })
+    
+    let gameOver = this.state.gameOver
+    let catsGame = this.state.catsGame
 
-    this.setState({grid, isPlayerXTurn})
+    if (isGridComplete(grid)) {
+      catsGame = isCatsGame(grid)
+      gameOver = true
+      this.setState({catsGame})
+    }
+
+    if (!catsGame) {
+      const winningCells = winningSection(grid)
+      if (winningCells != null) {
+        gameOver = true
+        this.setState({winningCells})
+      }
+    }
+    this.setState({gameOver})
   }
 
   restartGame = (event) => {
