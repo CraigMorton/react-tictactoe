@@ -98,3 +98,49 @@ describe('isCatsGame function', () => {
   })
 
 })
+
+import {isGameOver} from '../src/functions/gameLogic.js'
+
+describe('isGameOver function', () => {
+  
+  it('should return true when grid is empty array', () => {
+    assert.equal(isGameOver([]), true)
+  })
+
+  it('should return true no winning plays in complete grid', () => {
+    const grid = [
+      'X', 'O', 'O',
+      'O', 'X', 'X',
+      'X', 'X', 'O',
+    ]
+    assert.equal(isGameOver(grid), true)
+  })
+
+  it('should return false when grid incomplete', () => {
+    const grid = [
+      'X', 'O', 'X',
+      'O', 'X', 'O',
+      'O', 'X', '',
+    ]
+    assert.equal(isGameOver(grid), false)
+  })
+
+  it('should return true when winning play found in grid', () => {
+    const grid = [
+      'X', 'X', 'X',
+      'X', 'O', 'O',
+      'O', 'X', 'O',
+    ]
+    assert.equal(isGameOver(grid), true)
+  })
+
+  it('should return true when winning play found in incomplete grid', () => {
+    const grid = [
+      'X', 'X', 'X',
+      'X', 'O', 'O',
+      'O', 'X', '',
+    ]
+    assert.equal(isGameOver(grid), true)
+  })
+
+})

@@ -31,3 +31,9 @@ export {winningSection}
 const isCatsGame = (grid) => isGridComplete(grid) && !winningSection(grid)
 
 export {isCatsGame}
+
+const isGameOver = (grid) => (
+  isGridComplete(grid) || winningSection(grid).length != null
+)
+
+export {isGameOver}
