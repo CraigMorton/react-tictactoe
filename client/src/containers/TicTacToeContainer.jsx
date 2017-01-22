@@ -64,9 +64,6 @@ class TicTacToeContainer extends React.Component{
     })
   }
 
-  currentPlayerSymbol = () => this.state.isPlayerXTurn ? 'X' : 'O'
-  otherPlayerSymbol = () => !this.state.isPlayerXTurn ? 'X' : 'O'
-
   render = () => (
     <div>
       <Board
