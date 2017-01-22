@@ -17,7 +17,10 @@ const Cell = function ({
       htmlClasses += ' cell-winner'
     }
   }
-  if (gameOver) htmlClasses += ' cell-game-over'
+  if (gameOver) {
+    onClick = null
+    htmlClasses += ' cell-game-over'
+  }
   return (
     <div
     className={htmlClasses}

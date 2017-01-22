@@ -3,9 +3,10 @@ import Board from '../components/Board.jsx'
 import GameInfo from '../components/GameInfo.jsx'
 import SimpleButton from '../components/generic/SimpleButton.jsx'
 import {
-  isGameOver,
   winningSection,
   isCatsGame,
+  getOtherPlayer,
+  isGridComplete,
 } from '../functions/gameLogic.js'
 
 class TicTacToeContainer extends React.Component{
@@ -13,42 +14,69 @@ class TicTacToeContainer extends React.Component{
     super(props)
     this.state = {
       grid: ['', '', '', '', '', '', '', '', ''],
-      isPlayerXTurn: true
+      player: 'X',
+      opponent: 'O',
+      catsGame: false,
+      gameOver: false,
+      winningCells: null,
     }
   }
 
   handleCellClick = (event) => {
     const index = event.target.dataset.index
     const grid = this.state.grid.slice()
-    grid[index] = this.currentPlayerSymbol()
-    const isPlayerXTurn = !this.state.isPlayerXTurn
+    grid[index] = this.state.player
+    const player = getOtherPlayer(this.state.player)
+    const opponent = getOtherPlayer(this.state.opponent)
+    this.setState({
+      grid,
+      player,
+      opponent,
+    })
+    
+    let gameOver = this.state.gameOver
+    let catsGame = this.state.catsGame
 
-    this.setState({grid, isPlayerXTurn})
+    if (isGridComplete(grid)) {
+      catsGame = isCatsGame(grid)
+      gameOver = true
+      this.setState({catsGame})
+    }
+
+    if (!catsGame) {
+      const winningCells = winningSection(grid)
+      if (winningCells != null) {
+        gameOver = true
+        this.setState({winningCells})
+      }
+    }
+    this.setState({gameOver})
   }
 
   restartGame = (event) => {
     this.setState({
       grid: ['', '', '', '', '', '', '', '', ''],
-      isPlayerXTurn: true
+      player: 'X',
+      opponent: 'O',
+      catsGame: false,
+      gameOver: false,
+      winningCells: null,
     })
   }
-
-  currentPlayerSymbol = () => this.state.isPlayerXTurn ? 'X' : 'O'
-  otherPlayerSymbol = () => !this.state.isPlayerXTurn ? 'X' : 'O'
 
   render = () => (
     <div>
       <Board
       grid={this.state.grid}
       handleCellClick={this.handleCellClick}
-      gameOver={isGameOver(this.state.grid)}
-      winningCells={winningSection(this.state.grid)}
+      gameOver={this.state.gameOver}
+      winningCells={this.state.winningCells}
       />
       <GameInfo
-      player={this.currentPlayerSymbol()}
-      opponent={this.otherPlayerSymbol()}
-      gameOver={isGameOver(this.state.grid)}
-      catsGame={isCatsGame(this.state.grid)}
+      player={this.state.player}
+      opponent={this.state.opponent}
+      gameOver={this.state.gameOver}
+      catsGame={this.state.catsGame}
       />
       <SimpleButton
       onClick={this.restartGame}
