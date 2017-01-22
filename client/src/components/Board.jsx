@@ -1,22 +1,27 @@
 import React from 'react'
 import Cell from './Cell.jsx'
 
-const Board = (props) => {
-  let handleCellClick = props.handleCellClick
-  if (props.gameOver) handleCellClick = null
-  let winningCells = props.winningCells
-  if (props.winningCells == null) {
-    winningCells = []
+const Board = ({
+  grid,
+  handleCellClick,
+  winningCells,
+  gameOver,
+}) => {
+  let cellOnClick = handleCellClick
+  if (gameOver) cellOnClick = null
+  let winningCellIndices = winningCells
+  if (winningCells == null) {
+    winningCellIndices = []
   }
   return (
     <div className='board'>
-      {props.grid.map((cell, index) => (
+      {grid.map((cell, index) => (
         <Cell
         key={index}
         symbol={cell}
         claimed={cell !== ''}
-        winner={winningCells.includes(index)}
-        gameOver={props.gameOver}
+        winner={winningCellIndices.includes(index)}
+        gameOver={gameOver}
         index={index}
         handleClick={handleCellClick}
         />)
