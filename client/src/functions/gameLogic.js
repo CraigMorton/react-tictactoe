@@ -37,3 +37,13 @@ const isGameOver = (grid) => (
 )
 
 export {isGameOver}
+
+const getOtherPlayer = function (player) {
+  const findOtherPlayer = {
+    X: 'O',
+    O: 'X',
+  }
+  return findOtherPlayer[player]
+}
+
+export {getOtherPlayer}

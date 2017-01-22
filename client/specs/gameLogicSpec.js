@@ -144,3 +144,17 @@ describe('isGameOver function', () => {
   })
 
 })
+
+import {getOtherPlayer} from '../src/functions/gameLogic.js'
+
+describe('getOtherPlayer function', () => {
+  
+  it('should return O when passed X', () => {
+    assert.equal(getOtherPlayer('X'), 'O')
+  })
+
+  it('should return X when passed O', () => {
+    assert.equal(getOtherPlayer('O'), 'X')
+  })
+
+})
