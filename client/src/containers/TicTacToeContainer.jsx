@@ -3,9 +3,10 @@ import Board from '../components/Board.jsx'
 import GameInfo from '../components/GameInfo.jsx'
 import SimpleButton from '../components/generic/SimpleButton.jsx'
 import {
-  isGameOver,
   winningSection,
   isCatsGame,
+  getOtherPlayer,
+  isGridComplete,
 } from '../functions/gameLogic.js'
 
 class TicTacToeContainer extends React.Component{
@@ -13,7 +14,11 @@ class TicTacToeContainer extends React.Component{
     super(props)
     this.state = {
       grid: ['', '', '', '', '', '', '', '', ''],
-      isPlayerXTurn: true
+      player: 'X',
+      opponent: 'O',
+      catsGame: false,
+      gameOver: false,
+      winningCells: null,
     }
   }
 
@@ -29,7 +34,11 @@ class TicTacToeContainer extends React.Component{
   restartGame = (event) => {
     this.setState({
       grid: ['', '', '', '', '', '', '', '', ''],
-      isPlayerXTurn: true
+      player: 'X',
+      opponent: 'O',
+      catsGame: false,
+      gameOver: false,
+      winningCells: null,
     })
   }
 
@@ -41,14 +50,14 @@ class TicTacToeContainer extends React.Component{
       <Board
       grid={this.state.grid}
       handleCellClick={this.handleCellClick}
-      gameOver={isGameOver(this.state.grid)}
-      winningCells={winningSection(this.state.grid)}
+      gameOver={this.state.gameOver}
+      winningCells={this.state.winningCells}
       />
       <GameInfo
-      player={this.currentPlayerSymbol()}
-      opponent={this.otherPlayerSymbol()}
-      gameOver={isGameOver(this.state.grid)}
-      catsGame={isCatsGame(this.state.grid)}
+      player={this.state.player}
+      opponent={this.state.opponent}
+      gameOver={this.state.gameOver}
+      catsGame={this.state.catsGame}
       />
       <SimpleButton
       onClick={this.restartGame}
