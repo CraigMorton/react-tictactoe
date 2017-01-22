@@ -6,7 +6,11 @@ const Cell = function (props) {
   if (props.claimed) {
     onClick = null
     htmlClasses += ' cell-claimed'
+    if (props.winner) {
+      htmlClasses += ' cell-winner'
+    }
   }
+
   return (
     <div
     className={htmlClasses}

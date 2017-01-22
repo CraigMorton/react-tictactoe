@@ -1,7 +1,10 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
 import GameInfo from '../components/GameInfo.jsx'
-import {isGameOver} from '../functions/gameLogic.js'
+import {
+  isGameOver,
+  winningSection,
+} from '../functions/gameLogic.js'
 
 class TicTacToeContainer extends React.Component{
   constructor(props) {
@@ -30,6 +33,7 @@ class TicTacToeContainer extends React.Component{
       grid={this.state.grid}
       handleCellClick={this.handleCellClick}
       gameOver={isGameOver(this.state.grid)}
+      winningCells={winningSection(this.state.grid)}
       />
       <GameInfo
       player={this.currentPlayerSymbol()}
