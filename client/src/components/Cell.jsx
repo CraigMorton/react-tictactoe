@@ -1,33 +1,25 @@
 import React from 'react'
+import classNames from 'classnames'
 
-const Cell = function ({
+const Cell = ({
   handleClick,
   claimed,
   winner,
   gameOver,
   index,
   symbol,
-}) {
-  let onClick = handleClick
-  let htmlClasses = 'cell'
-  if (claimed) {
-    onClick = null
-    htmlClasses += ' cell-claimed'
-    if (winner) {
-      htmlClasses += ' cell-winner'
-    }
-  }
-  if (gameOver) {
-    onClick = null
-    htmlClasses += ' cell-game-over'
-  }
-  return (
-    <div
-    className={htmlClasses}
+}) => (
+  <div
+    className={classNames('cell', {
+      'cell-claimed': claimed,
+      'cell-winner': winner,
+      'cell-game-over': gameOver,
+    })}
     data-index={index}
-    onClick={onClick}
-    >{symbol}</div>
-    )
-}
+    onClick={claimed || winner || gameOver ? null : handleClick}
+    >{symbol}
+  </div>
+)
+
 
 export default Cell
