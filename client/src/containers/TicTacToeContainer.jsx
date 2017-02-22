@@ -7,6 +7,7 @@ import {
   isCatsGame,
   getOtherPlayer,
   isGridComplete,
+  isGameOver,
 } from '../functions/gameLogic.js'
 
 class TicTacToeContainer extends React.Component{
@@ -28,29 +29,17 @@ class TicTacToeContainer extends React.Component{
     grid[index] = this.state.player
     const player = getOtherPlayer(this.state.player)
     const opponent = getOtherPlayer(this.state.opponent)
+    const gameOver = isGameOver(grid)
+    const catsGame = isCatsGame(grid)
+    const winningCells = winningSection(grid)
     this.setState({
       grid,
       player,
       opponent,
+      catsGame,
+      winningCells,
+      gameOver,
     })
-    
-    let gameOver = this.state.gameOver
-    let catsGame = this.state.catsGame
-
-    if (isGridComplete(grid)) {
-      catsGame = isCatsGame(grid)
-      gameOver = true
-      this.setState({catsGame})
-    }
-
-    if (!catsGame) {
-      const winningCells = winningSection(grid)
-      if (winningCells != null) {
-        gameOver = true
-        this.setState({winningCells})
-      }
-    }
-    this.setState({gameOver})
   }
 
   restartGame = (event) => {
