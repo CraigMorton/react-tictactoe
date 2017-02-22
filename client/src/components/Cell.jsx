@@ -21,5 +21,4 @@ const Cell = ({
   </div>
 )
 
-
 export default Cell

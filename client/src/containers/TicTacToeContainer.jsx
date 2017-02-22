@@ -22,7 +22,6 @@ class TicTacToeContainer extends React.Component{
       winningCells: [],
     }
   }
-
   handleCellClick = (event) => {
     const index = event.target.dataset.index
     const grid = this.state.grid.slice()
@@ -41,7 +40,6 @@ class TicTacToeContainer extends React.Component{
       gameOver,
     })
   }
-
   restartGame = (event) => {
     this.setState({
       grid: ['', '', '', '', '', '', '', '', ''],
@@ -52,7 +50,6 @@ class TicTacToeContainer extends React.Component{
       winningCells: [],
     })
   }
-
   render = () => (
     <div>
       <Board
@@ -73,7 +70,6 @@ class TicTacToeContainer extends React.Component{
       />
     </div>
   )
-
 }
 
 export default TicTacToeContainer
