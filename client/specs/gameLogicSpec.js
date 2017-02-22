@@ -2,7 +2,7 @@ import {assert} from 'chai'
 import {isGridComplete} from '../src/functions/gameLogic.js'
 
 describe('isGridComplete', () => {
-  
+
   it('should return false if game not finished ', () => {
     const grid = ['', '', '']
     assert.equal(isGridComplete(grid), false)
@@ -22,7 +22,7 @@ describe('isGridComplete', () => {
 import {winningSection} from '../src/functions/gameLogic.js'
 
 describe('winningSection function', () => {
-  
+
   it('should return indices of section where winning row found', () => {
     const grid = [
       'X', 'O', 'X',
@@ -56,7 +56,7 @@ describe('winningSection function', () => {
 import {isCatsGame} from '../src/functions/gameLogic.js'
 
 describe('isCatsGame function', () => {
-  
+
   it('should return false when grid is empty array', () => {
     assert.equal(isCatsGame([]), false)
   })
@@ -102,7 +102,7 @@ describe('isCatsGame function', () => {
 import {isGameOver} from '../src/functions/gameLogic.js'
 
 describe('isGameOver function', () => {
-  
+
   it('should return true when grid is empty array', () => {
     assert.equal(isGameOver([]), true)
   })
@@ -148,7 +148,7 @@ describe('isGameOver function', () => {
 import {getOtherPlayer} from '../src/functions/gameLogic.js'
 
 describe('getOtherPlayer function', () => {
-  
+
   it('should return O when passed X', () => {
     assert.equal(getOtherPlayer('X'), 'O')
   })
