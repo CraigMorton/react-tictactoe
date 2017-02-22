@@ -32,13 +32,13 @@ describe('winningSection function', () => {
     assert.deepEqual(winningSection(grid), [2, 5, 8])
   })
 
-  it('should return false if no winning row found', () => {
+  it('should return empty array if no winning row found', () => {
     const grid = [
       'X', 'O', 'O',
       'O', 'X', 'X',
       'X', 'X', 'O',
     ]
-    assert.equal(winningSection(grid), null)
+    assert.deepEqual(winningSection(grid), [])
   })
 
   it('should return first winning sections when multiple wins on board -- should not be possible during normal gameplay', () => {

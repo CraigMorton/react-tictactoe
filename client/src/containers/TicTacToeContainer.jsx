@@ -18,7 +18,7 @@ class TicTacToeContainer extends React.Component{
       opponent: 'O',
       catsGame: false,
       gameOver: false,
-      winningCells: null,
+      winningCells: [],
     }
   }
 
@@ -60,7 +60,7 @@ class TicTacToeContainer extends React.Component{
       opponent: 'O',
       catsGame: false,
       gameOver: false,
-      winningCells: null,
+      winningCells: [],
     })
   }
 

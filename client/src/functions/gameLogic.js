@@ -21,19 +21,21 @@ const winningSection = function (grid) {
     .reduce((acc, cell) => cell !== '' && cell === section[0] && acc, true))
   const winningSectionIndex = sectionWinStatus.indexOf(true)
 
-  if (winningSectionIndex === -1) return null
+  if (winningSectionIndex === -1) return []
   const winningSection = sections[winningSectionIndex]
   return winningSection
 }
 
 export {winningSection}
 
-const isCatsGame = (grid) => isGridComplete(grid) && !winningSection(grid)
+const isCatsGame = (grid) => (
+  isGridComplete(grid) && winningSection(grid).length === 0
+)
 
 export {isCatsGame}
 
 const isGameOver = (grid) => (
-  isGridComplete(grid) || winningSection(grid) != null
+  isGridComplete(grid) || winningSection(grid).length !== 0
 )
 
 export {isGameOver}
