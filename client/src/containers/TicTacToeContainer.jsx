@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Board from '../components/Board.jsx'
 import GameInfo from '../components/GameInfo.jsx'
 import SimpleButton from '../components/generic/SimpleButton.jsx'
@@ -10,8 +10,8 @@ import {
   isGameOver,
 } from '../functions/gameLogic.js'
 
-class TicTacToeContainer extends React.Component{
-  constructor(props) {
+class TicTacToeContainer extends Component {
+  constructor (props) {
     super(props)
     this.state = {
       grid: ['', '', '', '', '', '', '', '', ''],
