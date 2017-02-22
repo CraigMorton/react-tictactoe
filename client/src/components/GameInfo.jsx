@@ -1,28 +1,16 @@
 import React from 'react'
 
-const GameInfo = function ({
+const GameInfo = ({
   player,
-  gameOver,
   opponent,
+  gameOver,
   catsGame,
-}) {
-  let gameInfoContent
-  if (gameOver) {
-    if (catsGame) {
-      gameInfoContent = <p>Cat's Game - Tie</p>
-    }
-    else {
-      gameInfoContent = <p>Winner: {opponent}</p>
-    }
-  }
-  else {
-    gameInfoContent = <p>Current player: {player}</p>
-  }
-  return (
-    <div className='game-info'>
-      {gameInfoContent}
-    </div>
-  )
-}
+}) => (
+  <div className='game-info'>
+    {!gameOver && <p>Current player: {player}</p>}
+    {gameOver && !catsGame && <p>Winner: {opponent}</p>}
+    {catsGame && <p>Cat's Game - Tie</p>}
+  </div>
+)
 
 export default GameInfo
