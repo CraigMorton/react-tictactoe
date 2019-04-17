@@ -1,14 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from 'react';
+import classNames from 'classnames';
 
-const Cell = ({
-  handleClick,
-  claimed,
-  winner,
-  gameOver,
-  index,
-  symbol,
-}) => (
+const Cell = ({ handleClick, claimed, winner, gameOver, index, symbol }) => (
   <div
     className={classNames('cell', {
       'cell-claimed': claimed,
@@ -17,8 +10,9 @@ const Cell = ({
     })}
     data-index={index}
     onClick={claimed || winner || gameOver ? null : handleClick}
-    >{symbol}
+  >
+    {symbol}
   </div>
-)
+);
 
-export default Cell
+export default Cell;
