@@ -1,13 +1,13 @@
 config = {
-  entry: './src/app.js',
+  entry: `${__dirname}/client/src/app.js`,
   output: {
     filename: 'bundle.js',
-    path: './build'
+    path: `${__dirname}/client/build`,
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
-  module:{
+  module: {
     rules: [
       {
         test: /\.jsx?$/,
@@ -15,12 +15,12 @@ config = {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015'],
-          plugins: ['transform-class-properties']
-        }
-      }
-    ]
+          plugins: ['transform-class-properties'],
+        },
+      },
+    ],
   },
-  devtool: 'source-map'
-}
+  devtool: 'source-map',
+};
 
 module.exports = config;
