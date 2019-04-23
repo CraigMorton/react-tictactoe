@@ -3,7 +3,7 @@ import Board from '../components/Board.jsx';
 import GameInfo from '../components/GameInfo.jsx';
 import SimpleButton from '../components/generic/SimpleButton.jsx';
 import {
-  winningSection,
+  winningLine,
   isCatsGame,
   getOtherPlayer,
   isGridComplete,
@@ -24,7 +24,7 @@ class TicTacToeContainer extends Component {
     const opponent = getOtherPlayer(this.state.opponent);
     const gameOver = isGameOver(grid);
     const catsGame = isCatsGame(grid);
-    const winningCells = winningSection(grid);
+    const winningCells = winningLine(grid);
     this.setState({
       grid,
       player,

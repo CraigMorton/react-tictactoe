@@ -17,22 +17,22 @@ describe('isGridComplete', () => {
   });
 });
 
-import { winningSection } from '../src/state/gameLogic.js';
+import { winningLine } from '../src/state/gameLogic.js';
 
-describe('winningSection function', () => {
+describe('winningLine function', () => {
   it('should return indices of section where winning row found', () => {
     const grid = ['X', 'O', 'X', 'O', 'O', 'X', 'O', 'X', 'X'];
-    assert.deepEqual(winningSection(grid), [2, 5, 8]);
+    assert.deepEqual(winningLine(grid), [2, 5, 8]);
   });
 
   it('should return empty array if no winning row found', () => {
     const grid = ['X', 'O', 'O', 'O', 'X', 'X', 'X', 'X', 'O'];
-    assert.deepEqual(winningSection(grid), []);
+    assert.deepEqual(winningLine(grid), []);
   });
 
   it('should return first winning sections when multiple wins on board -- should not be possible during normal gameplay', () => {
     const grid = ['X', 'X', 'X', 'O', 'O', 'O', '', '', ''];
-    assert.deepEqual(winningSection(grid), [0, 1, 2]);
+    assert.deepEqual(winningLine(grid), [0, 1, 2]);
   });
 });
 
