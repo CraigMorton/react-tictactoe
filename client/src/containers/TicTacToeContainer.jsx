@@ -9,18 +9,12 @@ import {
   isGridComplete,
   isGameOver,
 } from '../functions/gameLogic.js';
+import initialState from '../state/initialState';
 
 class TicTacToeContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      grid: ['', '', '', '', '', '', '', '', ''],
-      player: 'X',
-      opponent: 'O',
-      catsGame: false,
-      gameOver: false,
-      winningCells: [],
-    };
+    this.state = initialState;
   }
   handleCellClick = event => {
     const index = event.target.dataset.index;
@@ -40,15 +34,8 @@ class TicTacToeContainer extends Component {
       gameOver,
     });
   };
-  restartGame = event => {
-    this.setState({
-      grid: ['', '', '', '', '', '', '', '', ''],
-      player: 'X',
-      opponent: 'O',
-      catsGame: false,
-      gameOver: false,
-      winningCells: [],
-    });
+  restartGame = () => {
+    this.setState(initialState);
   };
   render = () => (
     <div>
