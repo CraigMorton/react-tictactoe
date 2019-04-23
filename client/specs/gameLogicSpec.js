@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import { isGridComplete } from '../src/functions/gameLogic.js';
+import { isGridComplete } from '../src/state/gameLogic.js';
 
 describe('isGridComplete', () => {
   it('should return false if game not finished ', () => {
@@ -17,7 +17,7 @@ describe('isGridComplete', () => {
   });
 });
 
-import { winningSection } from '../src/functions/gameLogic.js';
+import { winningSection } from '../src/state/gameLogic.js';
 
 describe('winningSection function', () => {
   it('should return indices of section where winning row found', () => {
@@ -36,7 +36,7 @@ describe('winningSection function', () => {
   });
 });
 
-import { isCatsGame } from '../src/functions/gameLogic.js';
+import { isCatsGame } from '../src/state/gameLogic.js';
 
 describe('isCatsGame function', () => {
   it('should return false when grid is empty array', () => {
@@ -64,7 +64,7 @@ describe('isCatsGame function', () => {
   });
 });
 
-import { isGameOver } from '../src/functions/gameLogic.js';
+import { isGameOver } from '../src/state/gameLogic.js';
 
 describe('isGameOver function', () => {
   it('should return true when grid is empty array', () => {
@@ -92,7 +92,7 @@ describe('isGameOver function', () => {
   });
 });
 
-import { getOtherPlayer } from '../src/functions/gameLogic.js';
+import { getOtherPlayer } from '../src/state/gameLogic.js';
 
 describe('getOtherPlayer function', () => {
   it('should return O when passed X', () => {

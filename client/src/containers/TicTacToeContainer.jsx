@@ -8,7 +8,7 @@ import {
   getOtherPlayer,
   isGridComplete,
   isGameOver,
-} from '../functions/gameLogic.js';
+} from '../state/gameLogic.js';
 import initialState from '../state/initialState';
 
 class TicTacToeContainer extends Component {
