@@ -11,16 +11,16 @@ config = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
-          plugins: ['transform-class-properties'],
+          presets: ['@babel/preset-react', '@babel/preset-env'],
+          plugins: ['@babel/plugin-proposal-class-properties'],
         },
       },
     ],
   },
-  devtool: 'source-map',
+  mode: 'development',
 };
 
 module.exports = config;
