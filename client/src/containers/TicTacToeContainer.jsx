@@ -22,23 +22,25 @@ class TicTacToeContainer extends Component {
   restartGame = () => {
     this.setState(initialState);
   };
-  render = () => (
-    <div>
-      <Board
-        grid={this.state.grid}
-        handleCellClick={this.handleCellClick}
-        gameOver={this.state.gameOver}
-        winningCells={this.state.winningCells}
-      />
-      <GameInfo
-        player={this.state.player}
-        opponent={this.state.opponent}
-        gameOver={this.state.gameOver}
-        catsGame={this.state.catsGame}
-      />
-      <SimpleButton onClick={this.restartGame} text="Restart Game" />
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <Board
+          grid={this.state.grid}
+          handleCellClick={this.handleCellClick}
+          gameOver={this.state.gameOver}
+          winningCells={this.state.winningCells}
+        />
+        <GameInfo
+          player={this.state.player}
+          opponent={this.state.opponent}
+          gameOver={this.state.gameOver}
+          catsGame={this.state.catsGame}
+        />
+        <SimpleButton onClick={this.restartGame} text="Restart Game" />
+      </div>
+    );
+  }
 }
 
 export default TicTacToeContainer;

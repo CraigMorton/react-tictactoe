@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SimpleButton = ({ onClick, text }) => (
-  <button className="button" onClick={onClick}>
-    {text}
-  </button>
-);
-
-export default SimpleButton;
+export default function SimpleButton({ onClick, text }) {
+  return (
+    <button className="button" onClick={onClick}>
+      {text}
+    </button>
+  );
+}

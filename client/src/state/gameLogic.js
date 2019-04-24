@@ -1,7 +1,6 @@
-const isGridComplete = grid =>
-  grid.map(cell => cell !== '').reduce((acc, curr) => acc && curr, true);
-
-export { isGridComplete };
+export function isGridComplete(grid) {
+  return grid.map(cell => cell !== '').reduce((acc, curr) => acc && curr, true);
+}
 
 export function winningLine(grid) {
   const winningLines = [
@@ -28,27 +27,21 @@ export function winningLine(grid) {
   return winningLine;
 }
 
-export { winningLine };
+export function isCatsGame(grid) {
+  return isGridComplete(grid) && winningLine(grid).length === 0;
+}
 
-const isCatsGame = grid =>
-  isGridComplete(grid) && winningLine(grid).length === 0;
+export function isGameOver(grid) {
+  return isGridComplete(grid) || winningLine(grid).length !== 0;
+}
 
-export { isCatsGame };
-
-const isGameOver = grid =>
-  isGridComplete(grid) || winningLine(grid).length !== 0;
-
-export { isGameOver };
-
-const getOtherPlayer = function(player) {
+export function getOtherPlayer(player) {
   const findOtherPlayer = {
     X: 'O',
     O: 'X',
   };
   return findOtherPlayer[player];
-};
-
-export { getOtherPlayer };
+}
 
 export function nextTurnState(grid, prevPlayer) {
   return {
