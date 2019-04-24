@@ -49,3 +49,13 @@ const getOtherPlayer = function(player) {
 };
 
 export { getOtherPlayer };
+
+export function nextTurnState(grid, prevPlayer) {
+  return {
+    player: getOtherPlayer(prevPlayer),
+    opponent: prevPlayer,
+    gameOver: isGameOver(grid),
+    catsGame: isCatsGame(grid),
+    winningCells: winningLine(grid),
+  };
+}

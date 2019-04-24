@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import Board from '../components/Board.jsx';
 import GameInfo from '../components/GameInfo.jsx';
 import SimpleButton from '../components/generic/SimpleButton.jsx';
-import {
-  winningLine,
-  isCatsGame,
-  getOtherPlayer,
-  isGridComplete,
-  isGameOver,
-} from '../state/gameLogic.js';
+import { nextTurnState } from '../state/gameLogic.js';
 import initialState from '../state/initialState';
 
 class TicTacToeContainer extends Component {
@@ -20,18 +14,9 @@ class TicTacToeContainer extends Component {
     const index = event.target.dataset.index;
     const grid = this.state.grid.slice();
     grid[index] = this.state.player;
-    const player = getOtherPlayer(this.state.player);
-    const opponent = getOtherPlayer(this.state.opponent);
-    const gameOver = isGameOver(grid);
-    const catsGame = isCatsGame(grid);
-    const winningCells = winningLine(grid);
     this.setState({
       grid,
-      player,
-      opponent,
-      catsGame,
-      winningCells,
-      gameOver,
+      ...nextTurnState(grid, this.state.player),
     });
   };
   restartGame = () => {
