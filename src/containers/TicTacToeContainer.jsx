@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from '../components/Board.jsx';
 import GameInfo from '../components/GameInfo.jsx';
-import SimpleButton from '../components/generic/SimpleButton.jsx';
+import SimpleButton from '../components/SimpleButton.jsx';
 import { nextTurnState } from '../state/gameLogic.js';
 import initialState from '../state/initialState';
 
