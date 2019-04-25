@@ -1,8 +1,8 @@
 config = {
-  entry: `${__dirname}/client/src/app.js`,
+  entry: `${__dirname}/src/app.js`,
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}/client/build`,
+    path: `${__dirname}/build`,
   },
   resolve: {
     extensions: ['.js', '.jsx'],

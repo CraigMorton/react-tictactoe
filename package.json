@@ -4,8 +4,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jest client/specs",
-    "test:watch": "jest client/specs --watch",
+    "test": "jest specs",
+    "test:watch": "jest specs --watch",
     "build:dev": "webpack -w"
   },
   "keywords": [],
