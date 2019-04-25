@@ -1,4 +1,4 @@
-import { isGridComplete } from '../src/state/gameLogic.js';
+import { isGridComplete } from '../state/gameLogic.js';
 
 describe('isGridComplete', () => {
   it('should return false if game not finished ', () => {
@@ -16,7 +16,7 @@ describe('isGridComplete', () => {
   });
 });
 
-import { winningLine } from '../src/state/gameLogic.js';
+import { winningLine } from '../state/gameLogic.js';
 
 describe('winningLine function', () => {
   it('should return indices of section where winning row found', () => {
@@ -35,7 +35,7 @@ describe('winningLine function', () => {
   });
 });
 
-import { isCatsGame } from '../src/state/gameLogic.js';
+import { isCatsGame } from '../state/gameLogic.js';
 
 describe('isCatsGame function', () => {
   it('should return false when grid is empty array', () => {
@@ -63,7 +63,7 @@ describe('isCatsGame function', () => {
   });
 });
 
-import { isGameOver } from '../src/state/gameLogic.js';
+import { isGameOver } from '../state/gameLogic.js';
 
 describe('isGameOver function', () => {
   it('should return true when grid is empty array', () => {
@@ -91,7 +91,7 @@ describe('isGameOver function', () => {
   });
 });
 
-import { getOtherPlayer } from '../src/state/gameLogic.js';
+import { getOtherPlayer } from '../state/gameLogic.js';
 
 describe('getOtherPlayer function', () => {
   it('should return O when passed X', () => {
@@ -103,7 +103,7 @@ describe('getOtherPlayer function', () => {
   });
 });
 
-import { nextTurnState } from '../src/state/gameLogic.js';
+import { nextTurnState } from '../state/gameLogic.js';
 
 describe('nextTurnState', () => {
   it('should return player, opponent, gameOver, catsGame and winningCells in an object', () => {
