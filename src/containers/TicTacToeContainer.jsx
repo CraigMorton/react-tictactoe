@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Board from '../components/Board.jsx';
 import GameInfo from '../components/GameInfo.jsx';
-import SimpleButton from '../components/SimpleButton.jsx';
 import { nextTurnState } from '../state/gameLogic.js';
 import initialState from '../state/initialState';
 
@@ -37,7 +36,7 @@ class TicTacToeContainer extends Component {
           gameOver={this.state.gameOver}
           catsGame={this.state.catsGame}
         />
-        <SimpleButton onClick={this.restartGame} text="Restart Game" />
+        <button onClick={this.restartGame}>Restart Game</button>
       </div>
     );
   }
