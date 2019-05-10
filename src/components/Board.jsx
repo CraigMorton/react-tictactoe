@@ -4,7 +4,7 @@ import Cell from './Cell.jsx';
 export default function Board({
   grid = [],
   handleCellClick,
-  winningCells,
+  winningCells = [],
   gameOver,
 }) {
   return (
