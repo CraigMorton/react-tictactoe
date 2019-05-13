@@ -18,6 +18,7 @@ export default function Cell({
       })}
       data-index={index}
       onClick={claimed || winner || gameOver ? null : handleClick}
+      data-testid={`cell-${index}`}
     >
       {symbol}
     </div>
