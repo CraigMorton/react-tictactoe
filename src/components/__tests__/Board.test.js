@@ -31,4 +31,13 @@ describe('Board component', function() {
     fireEvent.click(getByTestId('cell-0'));
     expect(handleCellClick.mock.calls.length).toBe(0);
   });
+
+  it('should not allow any cells to be clicked when game is over', function() {
+    const handleCellClick = jest.fn();
+    const { getByTestId } = render(
+      <Board grid={['']} gameOver={true} handleCellClick={handleCellClick} />,
+    );
+    fireEvent.click(getByTestId('cell-0'));
+    expect(handleCellClick.mock.calls.length).toBe(0);
+  });
 });
