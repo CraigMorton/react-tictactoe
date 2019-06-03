@@ -1,8 +1,14 @@
 export function isGridComplete(grid) {
+  if (!validateGrid(grid)) return false;
   return grid.map(cell => cell !== '').reduce((acc, curr) => acc && curr, true);
 }
 
+export function validateGrid(grid) {
+  return grid.length === 9;
+}
+
 export function winningLine(grid) {
+  if (!validateGrid(grid)) return [];
   const winningLines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -47,7 +53,6 @@ export function nextTurnState(grid, prevPlayer) {
   return {
     player: getOtherPlayer(prevPlayer),
     opponent: prevPlayer,
-    gameOver: isGameOver(grid),
     catsGame: isCatsGame(grid),
     winningCells: winningLine(grid),
   };
