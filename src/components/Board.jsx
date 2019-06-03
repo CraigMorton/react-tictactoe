@@ -1,6 +1,8 @@
 import React from 'react';
 import Cell from './Cell.jsx';
 import { isGameOver, winningLine } from '../state/gameLogic';
+import initialState from '../state/initialState';
+const emptyCell = initialState.grid[0];
 
 export default function Board({ grid = [], handleCellClick }) {
   const winningCells = winningLine(grid);
@@ -8,9 +10,9 @@ export default function Board({ grid = [], handleCellClick }) {
     <div className="board">
       {grid.map((cell, index) => (
         <Cell
-          key={index}
+          key={index + cell}
           symbol={cell}
-          claimed={cell !== ''}
+          claimed={cell !== emptyCell}
           winner={winningCells.includes(index)}
           gameOver={isGameOver(grid)}
           index={index}
