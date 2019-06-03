@@ -34,8 +34,9 @@ describe('Board component', function() {
 
   it('should not allow any cells to be clicked when game is over', function() {
     const handleCellClick = jest.fn();
+    const tiedGrid = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X'];
     const { getByTestId } = render(
-      <Board grid={['']} gameOver={true} handleCellClick={handleCellClick} />,
+      <Board grid={tiedGrid} handleCellClick={handleCellClick} />,
     );
     fireEvent.click(getByTestId('cell-0'));
     expect(handleCellClick.mock.calls.length).toBe(0);

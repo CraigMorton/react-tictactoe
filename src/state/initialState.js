@@ -3,6 +3,5 @@ export default {
   player: 'X',
   opponent: 'O',
   catsGame: false,
-  gameOver: false,
   winningCells: [],
 };

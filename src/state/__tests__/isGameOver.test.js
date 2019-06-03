@@ -1,8 +1,8 @@
 import { isGameOver } from '../../state/gameLogic.js';
 
 describe('isGameOver function', () => {
-  it('should return true when grid is empty array', () => {
-    expect(isGameOver([])).toBe(true);
+  it('should return false when grid is invalid', () => {
+    expect(isGameOver([])).toBe(false);
   });
 
   it('should return true no winning plays in complete grid', () => {
