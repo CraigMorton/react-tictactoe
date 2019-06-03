@@ -1,5 +1,7 @@
 import React from 'react';
 import Cell from './Cell.jsx';
+import initialState from '../state/initialState';
+const emptyCell = initialState.grid[0];
 
 export default function Board({
   grid = [],
@@ -11,9 +13,9 @@ export default function Board({
     <div className="board">
       {grid.map((cell, index) => (
         <Cell
-          key={index}
+          key={index + cell}
           symbol={cell}
-          claimed={cell !== ''}
+          claimed={cell !== emptyCell}
           winner={winningCells.includes(index)}
           gameOver={gameOver}
           index={index}
