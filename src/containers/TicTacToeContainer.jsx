@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Board from '../components/Board.jsx';
 import GameInfo from '../components/GameInfo.jsx';
-import { nextTurnState, isGameOver, winningLine } from '../state/gameLogic.js';
+import { nextTurnState, isGameOver } from '../state/gameLogic.js';
+
 import initialState from '../state/initialState';
 
 class TicTacToeContainer extends Component {
@@ -16,7 +17,6 @@ class TicTacToeContainer extends Component {
     this.setState({
       grid,
       ...nextTurnState(grid, this.state.player),
-      winningCells: winningLine(grid),
     });
   };
   restartGame = () => {
@@ -25,11 +25,7 @@ class TicTacToeContainer extends Component {
   render() {
     return (
       <div>
-        <Board
-          grid={this.state.grid}
-          handleCellClick={this.handleCellClick}
-          winningCells={this.state.winningCells}
-        />
+        <Board grid={this.state.grid} handleCellClick={this.handleCellClick} />
         <GameInfo
           player={this.state.player}
           opponent={this.state.opponent}
