@@ -16,7 +16,6 @@ class TicTacToeContainer extends Component {
     this.setState({
       grid,
       ...nextTurnState(grid, this.state.player),
-      winningCells: winningLine(grid),
     });
   };
   restartGame = () => {
@@ -25,11 +24,7 @@ class TicTacToeContainer extends Component {
   render() {
     return (
       <div>
-        <Board
-          grid={this.state.grid}
-          handleCellClick={this.handleCellClick}
-          winningCells={this.state.winningCells}
-        />
+        <Board grid={this.state.grid} handleCellClick={this.handleCellClick} />
         <GameInfo
           player={this.state.player}
           opponent={this.state.opponent}
