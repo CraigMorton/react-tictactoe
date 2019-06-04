@@ -32,11 +32,31 @@ describe('Board component', function() {
     expect(handleCellClick.mock.calls.length).toBe(0);
   });
 
-  it('should not allow any cells to be clicked when game is over', function() {
+  it('should not allow any cells to be clicked when game is over (tied)', function() {
     const handleCellClick = jest.fn();
     const tiedGrid = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X'];
     const { getByTestId } = render(
       <Board grid={tiedGrid} handleCellClick={handleCellClick} />,
+    );
+    fireEvent.click(getByTestId('cell-0'));
+    expect(handleCellClick.mock.calls.length).toBe(0);
+  });
+
+  it('should not allow any cells to be clicked when game is over (won by X)', function() {
+    const xWinsGrid = ['X', 'O', '', 'X', 'O', '', 'X', '', ''];
+    const handleCellClick = jest.fn();
+    const { getByTestId } = render(
+      <Board grid={xWinsGrid} handleCellClick={handleCellClick} />,
+    );
+    fireEvent.click(getByTestId('cell-0'));
+    expect(handleCellClick.mock.calls.length).toBe(0);
+  });
+
+  it('should not allow any cells to be clicked when game is over (won by O)', function() {
+    const oWinsGrid = ['X', 'O', 'X', 'X', 'O', '', '', 'O', ''];
+    const handleCellClick = jest.fn();
+    const { getByTestId } = render(
+      <Board grid={oWinsGrid} handleCellClick={handleCellClick} />,
     );
     fireEvent.click(getByTestId('cell-0'));
     expect(handleCellClick.mock.calls.length).toBe(0);
