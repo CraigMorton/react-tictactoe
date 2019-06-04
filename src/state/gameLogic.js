@@ -54,6 +54,5 @@ export function nextTurnState(grid, prevPlayer) {
     player: getOtherPlayer(prevPlayer),
     opponent: prevPlayer,
     catsGame: isCatsGame(grid),
-    winningCells: winningLine(grid),
   };
 }

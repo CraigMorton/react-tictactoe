@@ -2,7 +2,6 @@ import {
   nextTurnState,
   getOtherPlayer,
   isCatsGame,
-  winningLine,
 } from '../../state/gameLogic.js';
 
 describe('nextTurnState', () => {
@@ -10,7 +9,7 @@ describe('nextTurnState', () => {
     const resultsObject = nextTurnState([], 'X');
     const resultsKeys = Object.keys(resultsObject);
     expect(resultsKeys.sort()).toEqual(
-      ['catsGame', 'opponent', 'player', 'winningCells'].sort(),
+      ['catsGame', 'opponent', 'player'].sort(),
     );
   });
 
@@ -60,29 +59,6 @@ describe('nextTurnState', () => {
       const combinedResult = nextTurnState(grid, 'X').catsGame;
       const individualResult = isCatsGame(grid);
       expect(combinedResult).toBe(individualResult);
-    });
-  });
-
-  describe('should return winningCells as the winningLine function does', () => {
-    it('should return indices of section where winning row found', () => {
-      const grid = ['X', 'O', 'X', 'O', 'O', 'X', 'O', 'X', 'X'];
-      const combinedResult = nextTurnState(grid, 'X').winningCells;
-      const individualResult = winningLine(grid);
-      expect(combinedResult).toEqual(individualResult);
-    });
-
-    it('should return empty array if no winning row found', () => {
-      const grid = ['X', 'O', 'O', 'O', 'X', 'X', 'X', 'X', 'O'];
-      const combinedResult = nextTurnState(grid, 'X').winningCells;
-      const individualResult = winningLine(grid);
-      expect(combinedResult).toEqual(individualResult);
-    });
-
-    it('should return first winning sections when multiple wins on board -- should not be possible during normal gameplay', () => {
-      const grid = ['X', 'X', 'X', 'O', 'O', 'O', '', '', ''];
-      const combinedResult = nextTurnState(grid, 'X').winningCells;
-      const individualResult = winningLine(grid);
-      expect(combinedResult).toEqual(individualResult);
     });
   });
 });
