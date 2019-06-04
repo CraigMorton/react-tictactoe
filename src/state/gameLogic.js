@@ -49,10 +49,9 @@ export function getOtherPlayer(player) {
   return findOtherPlayer[player];
 }
 
-export function nextTurnState(grid, prevPlayer) {
+export function nextTurnState(prevPlayer) {
   return {
     player: getOtherPlayer(prevPlayer),
     opponent: prevPlayer,
-    catsGame: isCatsGame(grid),
   };
 }
