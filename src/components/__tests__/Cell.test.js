@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from 'react-testing-library';
 import Cell from '../Cell';
+import { expectToExist } from '../../testing/custom_assertions';
 
 describe('Cell component', function() {
   it('should render', function() {
@@ -10,12 +11,12 @@ describe('Cell component', function() {
   describe('rendered data', function() {
     it('should render X when given X', function() {
       const { getByText } = render(<Cell symbol={'X'} />);
-      expect(() => getByText('X')).not.toThrow();
+      expectToExist(getByText, 'X');
     });
 
     it('should render O when given O', function() {
       const { getByText } = render(<Cell symbol={'O'} />);
-      expect(() => getByText('O')).not.toThrow();
+      expectToExist(getByText, 'O');
     });
 
     it('should render when symbol passed is empty string', function() {
