@@ -21,7 +21,6 @@ class TicTacToeContainer extends Component {
     this.setState({
       grid,
       player: getOtherPlayer(this.state.player),
-      opponent: this.state.player,
     });
   };
   restartGame = () => {
@@ -33,7 +32,7 @@ class TicTacToeContainer extends Component {
         <Board grid={this.state.grid} handleCellClick={this.handleCellClick} />
         <GameInfo
           player={this.state.player}
-          opponent={this.state.opponent}
+          opponent={getOtherPlayer(this.state.player)}
           catsGame={isCatsGame(this.state.grid)}
           gameOver={isGameOver(this.state.grid)}
         />
