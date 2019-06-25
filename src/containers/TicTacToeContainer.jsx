@@ -26,7 +26,7 @@ class TicTacToeContainer extends Component {
   }
   render() {
     return (
-      <div>
+      <>
         <Board grid={this.state.grid} handleCellClick={this.handleCellClick} />
         <GameInfo
           player={this.state.player}
@@ -35,7 +35,7 @@ class TicTacToeContainer extends Component {
           gameOver={isGameOver(this.state.grid)}
         />
         <button onClick={this.restartGame}>Restart Game</button>
-      </div>
+      </>
     );
   }
 }
