@@ -13,24 +13,18 @@ class TicTacToeContainer extends Component {
     const index = event.target.dataset.index;
     const grid = this.state.grid.slice();
     grid[index] = this.state.player;
-    this.setState({
-      grid,
-      player: this.opponent(),
-    });
+    const player = getOtherPlayer(this.state.player);
+    this.setState({ grid, player });
   };
   restartGame = () => {
     this.setState(initialState);
   };
-  opponent() {
-    return getOtherPlayer(this.state.player);
-  }
   render() {
     return (
       <>
         <Board grid={this.state.grid} handleCellClick={this.handleCellClick} />
         <GameInfo
           player={this.state.player}
-          opponent={this.opponent()}
           catsGame={isCatsGame(this.state.grid)}
           gameOver={isGameOver(this.state.grid)}
         />

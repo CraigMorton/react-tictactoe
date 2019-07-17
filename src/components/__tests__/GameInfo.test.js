@@ -41,13 +41,11 @@ describe('GameInfo component', function() {
   });
   describe('Winner', function() {
     it('should display when game is over', function() {
-      const { getByText } = render(<GameInfo gameOver={true} opponent={'O'} />);
+      const { getByText } = render(<GameInfo gameOver={true} player={'X'} />);
       expectToExist(getByText, 'Winner: O');
     });
     it('should not display when game is in progress', function() {
-      const { getByText } = render(
-        <GameInfo gameOver={false} opponent={'O'} />,
-      );
+      const { getByText } = render(<GameInfo gameOver={false} player={'X'} />);
       expectNotToExist(getByText, 'Winner: O');
     });
   });

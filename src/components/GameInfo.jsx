@@ -1,6 +1,8 @@
 import React from 'react';
+import { getOtherPlayer } from '../state/gameLogic';
 
-export default function GameInfo({ player, opponent, gameOver, catsGame }) {
+export default function GameInfo({ player, gameOver, catsGame }) {
+  const opponent = getOtherPlayer(player);
   return (
     <>
       {!gameOver && <p>Current player: {player}</p>}
