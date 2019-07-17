@@ -51,14 +51,16 @@ describe('GameInfo component', function() {
   });
   describe("Cat's game", function() {
     it('should display when game is over and game is a tie', function() {
+      const tiedGrid = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X'];
       const { getByText } = render(
-        <GameInfo catsGame={true} gameOver={true} />,
+        <GameInfo grid={tiedGrid} gameOver={true} />,
       );
       expectToExist(getByText, "Cat's Game - Tie");
     });
     it('should not display when game is in progress', function() {
+      const inProgressGrid = ['O', '', '', '', 'X', '', '', '', ''];
       const { getByText } = render(
-        <GameInfo catsGame={true} gameOver={false} />,
+        <GameInfo grid={inProgressGrid} gameOver={false} />,
       );
       expectNotToExist(getByText, "Cat's Game - Tie");
     });
