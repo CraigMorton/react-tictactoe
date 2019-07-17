@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from '../components/Board.jsx';
 import GameInfo from '../components/GameInfo.jsx';
-import { isGameOver, getOtherPlayer } from '../state/gameLogic.js';
+import { getOtherPlayer } from '../state/gameLogic.js';
 import initialState from '../state/initialState';
 
 class TicTacToeContainer extends Component {
@@ -23,11 +23,7 @@ class TicTacToeContainer extends Component {
     return (
       <>
         <Board grid={this.state.grid} handleCellClick={this.handleCellClick} />
-        <GameInfo
-          player={this.state.player}
-          grid={this.state.grid}
-          gameOver={isGameOver(this.state.grid)}
-        />
+        <GameInfo player={this.state.player} grid={this.state.grid} />
         <button onClick={this.restartGame}>Restart Game</button>
       </>
     );
