@@ -39,4 +39,16 @@ describe('GameInfo component', function() {
       });
     });
   });
+  describe('Winner', function() {
+    it('should display when game is over', function() {
+      const { getByText } = render(<GameInfo gameOver={true} opponent={'O'} />);
+      expectToExist(getByText, 'Winner: O');
+    });
+    it('should not display when game is in progress', function() {
+      const { getByText } = render(
+        <GameInfo gameOver={false} opponent={'O'} />,
+      );
+      expectNotToExist(getByText, 'Winner: O');
+    });
+  });
 });
