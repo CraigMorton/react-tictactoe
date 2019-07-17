@@ -5,7 +5,7 @@ import { expectToExist } from '../../testing/custom_assertions';
 
 describe('Cell component', function() {
   it('should render', function() {
-    render(<Cell />);
+    expect(() => render(<Cell />)).not.toThrow();
   });
 
   describe('rendered data', function() {
@@ -20,7 +20,7 @@ describe('Cell component', function() {
     });
 
     it('should render when symbol passed is empty string', function() {
-      render(<Cell symbol={''} />);
+      expect(() => render(<Cell symbol={''} />)).not.toThrow();
     });
   });
 

@@ -5,7 +5,7 @@ import initialState from '../../state/initialState';
 
 describe('Board component', function() {
   it('should render', function() {
-    render(<Board />);
+    expect(() => render(<Board />)).not.toThrow();
   });
 
   it('should initially render an empty grid', function() {
