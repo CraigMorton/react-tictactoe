@@ -58,5 +58,11 @@ describe('GameInfo component', function() {
       );
       expectToExist(getByText, "Cat's Game - Tie");
     });
+    it('should not display when game is in progress', function() {
+      const { getByText } = render(
+        <GameInfo catsGame={true} gameOver={false} />,
+      );
+      expectNotToExist(getByText, "Cat's Game - Tie");
+    });
   });
 });

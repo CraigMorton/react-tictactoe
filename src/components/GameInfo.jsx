@@ -5,7 +5,7 @@ export default function GameInfo({ player, opponent, gameOver, catsGame }) {
     <>
       {!gameOver && <p>Current player: {player}</p>}
       {gameOver && !catsGame && <p>Winner: {opponent}</p>}
-      {catsGame && <p>Cat's Game - Tie</p>}
+      {catsGame && gameOver && <p>Cat's Game - Tie</p>}
     </>
   );
 }
