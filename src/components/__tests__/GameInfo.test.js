@@ -51,4 +51,12 @@ describe('GameInfo component', function() {
       expectNotToExist(getByText, 'Winner: O');
     });
   });
+  describe("Cat's game", function() {
+    it('should display when game is over and game is a tie', function() {
+      const { getByText } = render(
+        <GameInfo catsGame={true} gameOver={true} />,
+      );
+      expectToExist(getByText, "Cat's Game - Tie");
+    });
+  });
 });
