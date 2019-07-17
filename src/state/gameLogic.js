@@ -33,7 +33,7 @@ export function winningLine(grid) {
   return winningLine;
 }
 
-export function isCatsGame(grid) {
+export function isTiedGame(grid) {
   return isGridComplete(grid) && winningLine(grid).length === 0;
 }
 
