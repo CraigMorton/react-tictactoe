@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "jest": "^24.7.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
